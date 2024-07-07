@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsNumber, IsString, IsUrl } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString, IsTimeZone, IsUrl } from "class-validator";
+import { Timestamp } from "typeorm";
 
 export class CreateProductDto {
 
@@ -22,7 +23,22 @@ export class CreateProductDto {
     @IsNotEmpty()
     categoryId: number;
 
+    @IsNumber()
+    @IsNotEmpty()
+    stock_quantity: number;
+
 }
+
+
+// @Column()
+    // stock_quantity: number;
+
+    // @Column()
+    // image_url: string;
+
+    // @Column()
+    // created_at : Timestamp;
+
 
 // @PrimaryGeneratedColumn()
 //     id: number;

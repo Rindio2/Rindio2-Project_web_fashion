@@ -4,6 +4,10 @@ import { UsersModule } from './modules/users/users.module'; // Sửa lại tên 
 import { ProductsModule } from './modules/products/products.module'; // Tên thư mục nên là 'product' thay vì 'products' để đồng nhất với tên module
 import { CategoryModule } from './modules/category/category.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { AdminModule } from './modules/admin/admin.module';
+import { OrdersModule } from './modules/orders/orders.module';
+import { CouponsModule } from './modules/coupons/coupons.module';
+import { OrderItemModule } from './modules/order-item/order-item.module';
 import config from 'ormconfig';
 
 @Module({
@@ -13,6 +17,10 @@ import config from 'ormconfig';
     ProductsModule,
     CategoryModule,
     AuthModule,
+    AdminModule,
+    OrdersModule,
+    CouponsModule,
+    OrderItemModule,
   ],
   controllers: [],
   providers: [],

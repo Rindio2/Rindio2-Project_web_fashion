@@ -21,7 +21,7 @@ export class ProductsRepository {
   async create(createProductDto: CreateProductDto) {
     const {title, description, price, productImage, categoryId} = createProductDto;
     const category = await this.categoryRepository.findOne({where: {id: categoryId}});
-    console.log(category,"category");
+    // console.log(category,"category");
     
     if(!category){
         throw new NotFoundException(`Could not find`);

@@ -6,6 +6,7 @@ import {
     JoinTable,
     JoinColumn,
     ManyToOne,
+    Timestamp,
 } from "typeorm"
 import { Category } from "../../category/entities/category.entity"
 
@@ -25,6 +26,13 @@ export class Products{
 
     @Column()
     productImage: string;
+
+    @Column()
+    stock_quantity: number;
+
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    created_at: Date;
+
 
     @ManyToOne((type) => Category, (category) => category.products, {
         cascade: true, onDelete: 'CASCADE'
