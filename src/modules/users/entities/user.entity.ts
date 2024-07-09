@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, Timestamp } from 'typeorm';
-
+import { Entity, Column, PrimaryGeneratedColumn, Timestamp, OneToMany } from 'typeorm';
+import { Wishlist } from '../../wishlists/entities/wishlist.entity';
 @Entity()
 export class User {
+    [x: string]: any;
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -34,5 +35,9 @@ export class User {
   
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   update_at: Date;
-    orders: any;
+  orders: any;
+  reviews: any;
+
+  @OneToMany(() => Wishlist, wishlist => wishlist.user)
+  wishlists: Wishlist[];
 }

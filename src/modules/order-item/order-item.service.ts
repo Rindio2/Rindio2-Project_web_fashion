@@ -1,26 +1,29 @@
 import { Injectable } from '@nestjs/common';
+import { OrderItemsRepository } from './order-item.repository';
 import { CreateOrderItemDto } from './dto/create-order-item.dto';
 import { UpdateOrderItemDto } from './dto/update-order-item.dto';
 
 @Injectable()
-export class OrderItemService {
+export class OrderItemsService {
+  constructor(private readonly orderItemsRepository: OrderItemsRepository) {}
+
   create(createOrderItemDto: CreateOrderItemDto) {
-    return 'This action adds a new orderItem';
+    return this.orderItemsRepository.create(createOrderItemDto);
   }
 
   findAll() {
-    return `This action returns all orderItem`;
+    return this.orderItemsRepository.findAll();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} orderItem`;
+    return this.orderItemsRepository.findOne(id);
   }
 
   update(id: number, updateOrderItemDto: UpdateOrderItemDto) {
-    return `This action updates a #${id} orderItem`;
+    return this.orderItemsRepository.update(id, updateOrderItemDto);
   }
 
   remove(id: number) {
-    return `This action removes a #${id} orderItem`;
+    return this.orderItemsRepository.remove(id);
   }
 }

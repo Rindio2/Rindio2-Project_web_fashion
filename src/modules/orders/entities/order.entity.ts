@@ -43,4 +43,5 @@ export class Order {
 
     @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
     updatedAt: Date;
+    orderItems: any;
 }
